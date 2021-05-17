@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/task_cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginRight="8dp"
+    android:padding="8dp"
+    app:cardCornerRadius="20dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/task_Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/task_completed_checkbox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/task_completed_checkbox"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginRight="8dp"
+            android:background="@android:color/transparent"
+            android:backgroundTint="@color/black"
+            android:button="@drawable/custom_checkbox"
+            android:checked="false"
+            app:layout_constraintEnd_toStartOf="@+id/task_edit"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageButton
+            android:id="@+id/task_edit"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/edit"
+            android:backgroundTint="@color/black"
+            app:layout_constraintEnd_toStartOf="@+id/task_more_options"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/task_more_options"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/three_dots"
+            android:backgroundTint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/task_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Description"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toStartOf="@+id/task_priority"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/task_Title" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/task_priority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Priority : 3"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/task_Title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/task_startDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="StartDate"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/task_description" />
+
+        <SeekBar
+            android:id="@+id/task_time_progress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:outlineAmbientShadowColor="#1D8700"
+            android:progress="10"
+            android:progressTint="@color/black"
+            android:thumbTint="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/task_startDate"
+            app:layout_constraintEnd_toStartOf="@+id/task_endDate"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/task_startDate"
+            app:layout_constraintTop_toBottomOf="@+id/task_description" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/task_endDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="End date"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/task_description" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/materialTextView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/task_endDate"
+            app:layout_constraintStart_toEndOf="@+id/task_startDate"
+            app:layout_constraintTop_toBottomOf="@+id/task_time_progress" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/task_subtaskCompleted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subtasks Completed(3/4)"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/task_time_progress"
+            app:layout_constraintStart_toEndOf="@+id/task_startDate"
+            app:layout_constraintTop_toBottomOf="@+id/materialTextView6" />
+
+        <ImageButton
+            android:id="@+id/task_show_details"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/up"
+            android:backgroundTint="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/task_subtaskCompleted"
+            app:layout_constraintEnd_toEndOf="@+id/task_endDate"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/task_subtaskCompleted"
+            app:layout_constraintTop_toBottomOf="@+id/materialTextView6" />
+
+
+        <net.cachapa.expandablelayout.ExpandableLayout
+            android:id="@+id/task_subtaskExpandableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:el_expanded="true"
+            app:layout_constraintTop_toBottomOf="@+id/task_show_details">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <SeekBar
+                    android:id="@+id/task_subtask_completed_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:progress="65"
+                    android:progressTint="@color/black"
+                    android:thumbTint="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/imageButton2"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/menu1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/task_subtask_completed_bar" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/task_subtask_recyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="16dp"
+                    android:visibility="visible"
+                    tools:listitem="@layout/item_subtask_single_item"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageButton2"
+                    app:layout_constraintTop_toTopOf="@+id/imageButton2"
+                    />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Add Subtasks"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/task_add_subtasks"
+                    app:layout_constraintStart_toEndOf="@+id/imageButton2"
+                    app:layout_constraintTop_toBottomOf="@+id/task_subtask_recyclerView">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/textInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/task_add_subtasks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/add"
+                    app:backgroundTint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/textInputLayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textInputLayout"
+                    app:tint="@android:color/white" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </net.cachapa.expandablelayout.ExpandableLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
