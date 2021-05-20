@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
@@ -18,6 +19,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mytodoapp.Models.TaskModel;
 import com.example.mytodoapp.R;
 import com.google.android.material.textview.MaterialTextView;
 
@@ -28,10 +30,13 @@ import java.util.ArrayList;
 public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
 
     Context context;
+    ArrayList<TaskModel> taskModels;
 
-    public ToDoAdapter(Context context) {
+    public ToDoAdapter(Context context, ArrayList<TaskModel> taskModels) {
         this.context = context;
+        this.taskModels = taskModels;
     }
+
 
     @NonNull
     @Override
@@ -50,6 +55,10 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
         str.add("Task 4");
         str.add("Task 5");
 
+
+        //holder.task_cardView.setAnimation(AnimationUtils.loadAnimation(context,R.anim.fade_in_animation_1));
+
+
         SubtaskAdapter subtaskAdapter = new SubtaskAdapter(context,str);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false);
         holder.task_subtask_recyclerView.setLayoutManager(layoutManager);
@@ -59,7 +68,7 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 7;
+        return taskModels.size();
     }
 
 
@@ -115,6 +124,9 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
             task_cardView = itemView.findViewById(R.id.task_cardView);
 
 
+
+
+
             task_show_details.setOnClickListener(v -> {
                 if(task_subtaskExpandableLayout.isExpanded())
                 {
@@ -132,13 +144,9 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
             task_subtaskCompleted.setOnClickListener(v -> {
                 if(task_subtaskExpandableLayout.isExpanded())
                 {
-                    task_show_details.setBackgroundResource(R.drawable.down);
-                    task_subtaskExpandableLayout.collapse();
                 }
                 else
                 {
-                    task_show_details.setBackgroundResource(R.drawable.up);
-                    task_subtaskExpandableLayout.expand();
                 }
             });
 

@@ -15,9 +15,10 @@ public class TaskModel {
     private double timeLeft;
     private String status;
     private String background;
+    private String listName;
 
     public TaskModel(String title, String description, Date startDate, Date endDate, String background,
-                     ArrayList<String> subtasks, int priority, boolean isCompleted, double timeLeft, String status) {
+                     ArrayList<String> subtasks, int priority, boolean isCompleted, double timeLeft, String status, String listName) {
         this.title = title;
         this.background = background;
         this.description = description;
@@ -28,6 +29,15 @@ public class TaskModel {
         this.isCompleted = isCompleted;
         this.timeLeft = timeLeft;
         this.status = status;
+        this.listName = listName;
+    }
+
+    public String getListName() {
+        return listName;
+    }
+
+    public void setListName(String listName) {
+        this.listName = listName;
     }
 
     public String getBackground() {
